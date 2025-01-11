@@ -10,6 +10,17 @@
 #include "keybind.h"
 #include "image.h"
 
+#define BOX_TXT_FTSZ      30
+#define BOX_BORDER        7
+
+#define BOX_X_SCALE       200
+#define BOX_Y_SCALE       40
+
+#define BOX_POSX          (SCREEN_WIDTH/2-BOX_X_SCALE)
+#define BOX_WIDTH         (BOX_X_SCALE*2)
+#define BOX_POSY          (SCREEN_HEIGHT/4)
+#define BOX_HEIGHT        (BOX_Y_SCALE*2)
+
 static  inline  void    draw_title (const char *title, const G_Theme theme);
 static  inline  void    draw_box (const int selected, const G_Theme theme);
 static  inline  void    HandleInput_main_menu (G_App *app, const int key, int *selected);
@@ -49,6 +60,9 @@ G_draw_configuration(G_App *app)
   {
     switch (key)
     {
+      case KEY_LEFT:
+        G_ChangeScreen(app, PREVIOUS);
+        break;
       default:
         break;
     }
@@ -76,6 +90,7 @@ HandleInput_main_menu(G_App *app, const int key, int *selected)
       break;
     case KEY_SPACE:
     case KEY_ENTER:
+    case KEY_RIGHT:
     case KEY_D:
       if (*selected == 1)
         G_ChangeScreen(app, MENU_CONFIGURATION);

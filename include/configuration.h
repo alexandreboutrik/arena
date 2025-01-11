@@ -29,19 +29,6 @@
 #define COPYRIGHT_X       SCREEN_WIDTH-200
 #define COPYRIGHT_Y       SCREEN_HEIGHT-40
 
-// ---------- Menu Boxes
-
-#define BOX_TXT_FTSZ      30
-#define BOX_BORDER        7
-
-#define BOX_X_SCALE       200
-#define BOX_Y_SCALE       40
-
-#define BOX_POSX          (SCREEN_WIDTH/2-BOX_X_SCALE)
-#define BOX_WIDTH         (BOX_X_SCALE*2)
-#define BOX_POSY          (SCREEN_HEIGHT/4)
-#define BOX_HEIGHT        (BOX_Y_SCALE*2)
-
 // ----------
 
 #define CARD_W            (CARD_WIDTH  * CARD_SCL)

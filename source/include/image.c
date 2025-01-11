@@ -114,7 +114,7 @@ G_InitImages(G_App *app)
 
   // --- UI assets from 42 on
   G_LoadImage(app, ASSETS "/ui/arrowRight.png",
-               80, 80, (SCREEN_WIDTH/16)*5, BOX_POSY);
+               80, 80, (SCREEN_WIDTH/16)*5, 0);
 
   G_LoadImage(app, "/home/boutrik/Downloads/output-onlinepngtools.png",
                COPYRIGHT_WH, COPYRIGHT_WH, COPYRIGHT_X, COPYRIGHT_Y);
