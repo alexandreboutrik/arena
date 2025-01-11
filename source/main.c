@@ -6,6 +6,7 @@
 #include "draw.h"
 #include "theme.h"
 #include "music.h"
+#include "widget.h"
 
 int
 main(void)
