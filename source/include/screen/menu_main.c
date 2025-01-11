@@ -56,6 +56,7 @@ G_draw_configuration(G_App *app)
 {
   app->flags |= FLAG_RETURN;
 
+  // --- Keyboard
   for (int key = true; (key = GetKeyPressed()); G_KeyBind(app, key))
   {
     switch (key)
@@ -67,6 +68,9 @@ G_draw_configuration(G_App *app)
         break;
     }
   }
+
+  // --- Mouse
+  G_KeyMouse(app, GetMouseX(), GetMouseY());
 
   G_DrawNotImplemented(app);
 
@@ -126,6 +130,7 @@ G_draw_main_menu(G_App *app)
       }
     }
   }
+  G_KeyMouse(app, x, y);
 
   // --- Arrow
   app->image[IMG_ARROW].y = BOX_POSY + selected*125;

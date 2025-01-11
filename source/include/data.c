@@ -50,6 +50,7 @@ G_Quit(G_App *app)
   UnloadMusicStream(app->current_music);
   G_UnloadImages(app);
 
+  CloseAudioDevice();
   CloseWindow();
 
   exit(EXIT_SUCCESS);

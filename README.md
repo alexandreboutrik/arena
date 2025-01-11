@@ -16,6 +16,7 @@ Features:
 |:-------------------------|:----------------------------------|:------------|
 | Refactor current code    | :black_square_button: In progress | Improve everything |
 | Pop-up windows           | :white_square_button: Planned     | For configuration, volume control, etc | 
+| ...                      | ...                               | ... |
 | Networking               | :white_square_button: Planned     | I have not decided the protocol yet |
 | Patching                 | :white_square_button: Planned     | Automatic updates |
 | ...                      | ...                               | ... |

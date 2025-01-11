@@ -58,3 +58,22 @@ G_KeyBind(G_App *app, const int key)
       break;
   }
 }
+
+extern void
+G_KeyMouse(G_App *app, const int x, const int y)
+{
+  if (! IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
+    return;
+
+  printf("Clicked at x:[%d], y:[%d]\n", x, y);
+
+  if (y > 40 && y < 65)
+  {
+    if (x > 1720 && x < 1770)
+      G_KeyBind(app, KEY_T);
+    if (x > 1770 && x < 1820)
+      G_KeyBind(app, KEY_M);
+    if (x > 1820 && x < 1870)
+      G_KeyBind(app, KEY_ESCAPE);
+  }
+}
