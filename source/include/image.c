@@ -42,7 +42,7 @@ extern void
 G_LoadCard(G_App *app, const int naipe, const int card)
 {
   char cn[16][16] = { "Diamonds", "Spades", "Hearts", "Clubs" };
-  char cc[16] = "A234567JQK";
+  char cc[16] = "A234567QJK";
 
   char filename[MAX_FILENAME] = {0};
 
@@ -119,9 +119,10 @@ G_InitImages(G_App *app)
   G_LoadImage(app, "/home/boutrik/Downloads/output-onlinepngtools.png",
                COPYRIGHT_WH, COPYRIGHT_WH, COPYRIGHT_X, COPYRIGHT_Y);
 
-  // --- 44; 47
+  // --- 44; 48
   G_LoadImage(app, ASSETS "/ui/return.png", 40, 40, SCREEN_WIDTH-100, 30);
-  G_LoadImage(app, ASSETS "/ui/musicOff.png", 40, 40, SCREEN_WIDTH-150, 30);
-  G_LoadImage(app, ASSETS "/ui/musicOn.png", 40, 40, SCREEN_WIDTH-150, 30);
-  G_LoadImage(app, ASSETS "/ui/movie.png", 40, 40, SCREEN_WIDTH-200, 30);
+  G_LoadImage(app, ASSETS "/ui/wrench.png", 40, 40, SCREEN_WIDTH-150, 30);
+  G_LoadImage(app, ASSETS "/ui/musicOff.png", 40, 40, SCREEN_WIDTH-200, 30);
+  G_LoadImage(app, ASSETS "/ui/musicOn.png", 40, 40, SCREEN_WIDTH-200, 30);
+  G_LoadImage(app, ASSETS "/ui/movie.png", 40, 40, SCREEN_WIDTH-250, 30);
 }

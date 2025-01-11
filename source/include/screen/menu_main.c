@@ -1,6 +1,5 @@
 #include "screen/menu_main.h"
 
-#include <math.h>
 #include <raylib.h>
 #include <string.h>
 
@@ -21,15 +20,8 @@
 #define BOX_POSY          (SCREEN_HEIGHT/4)
 #define BOX_HEIGHT        (BOX_Y_SCALE*2)
 
-static  inline  void    draw_title (const char *title, const G_Theme theme);
 static  inline  void    draw_box (const int selected, const G_Theme theme);
 static  inline  void    HandleInput_main_menu (G_App *app, const int key, int *selected);
-
-static inline void
-draw_title(const char *title, const G_Theme theme)
-{
-  G_CentralizeText(title, 100, TITLE_FTSZ, theme.foreground);
-}
 
 #define BOX_N 3
 
@@ -51,32 +43,6 @@ draw_box(const int selected, const G_Theme theme)
   }
 }
 
-extern void
-G_draw_configuration(G_App *app)
-{
-  app->flags |= FLAG_RETURN;
-
-  // --- Keyboard
-  for (int key = true; (key = GetKeyPressed()); G_KeyBind(app, key))
-  {
-    switch (key)
-    {
-      case KEY_LEFT:
-        G_ChangeScreen(app, PREVIOUS);
-        break;
-      default:
-        break;
-    }
-  }
-
-  // --- Mouse
-  G_KeyMouse(app, GetMouseX(), GetMouseY());
-
-  G_DrawNotImplemented(app);
-
-  draw_title("Configuration", app->current_theme);
-}
-
 static inline void
 HandleInput_main_menu(G_App *app, const int key, int *selected)
 {
@@ -96,6 +62,8 @@ HandleInput_main_menu(G_App *app, const int key, int *selected)
     case KEY_ENTER:
     case KEY_RIGHT:
     case KEY_D:
+      if (*selected == 0)
+        G_ChangeScreen(app, START_GAME);
       if (*selected == 1)
         G_ChangeScreen(app, MENU_CONFIGURATION);
       if (*selected == 2)
@@ -140,6 +108,6 @@ G_draw_main_menu(G_App *app)
   G_DrawCard(app, NAIPE_CLUBS, CARD_3, CARD_W, CARD_H, 30, 30+150*0);
   G_DrawCardBack(app, CARD_W, CARD_H, 30, 30+150*1);
 
-  draw_title(TITLE, app->current_theme);
+  G_DrawTitle(TITLE, app->current_theme);
   draw_box(selected, app->current_theme);
 }

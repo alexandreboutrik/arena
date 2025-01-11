@@ -5,7 +5,8 @@
 #include "image.h"
 
 static  inline  void    G_Widget_FPS (const int flags);
-static  inline  void    G_Widget_Music (G_App *app, const int flags);
+static  inline  void    G_Widget_Music (const G_App *app, const int flags);
+static  inline  void    G_Widget_Return (const G_App *app, const int flags);
 static  inline  void    G_Copyright (const G_App *app);
 
 static inline void
@@ -23,7 +24,7 @@ G_Widget_FPS(const int flags)
 }
 
 static inline void
-G_Widget_Music(G_App *app, const int flags)
+G_Widget_Music(const G_App *app, const int flags)
 {
   if (flags & FLAG_MUSIC)
     G_DrawImage(app, IMG_MUSIC_ON);
@@ -32,7 +33,7 @@ G_Widget_Music(G_App *app, const int flags)
 }
 
 extern inline void
-G_Widget_Return(G_App *app, const int flags)
+G_Widget_Return(const G_App *app, const int flags)
 {
   if (flags & FLAG_RETURN)
     G_DrawImage(app, IMG_RETURN);
@@ -54,6 +55,7 @@ G_DrawWidgets(G_App *app, const int flags)
   G_Widget_FPS(flags);
   G_Widget_Music(app, flags);
   G_Widget_Return(app, flags);
+
   G_Copyright(app);
 }
 

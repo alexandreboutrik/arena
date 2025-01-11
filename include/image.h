@@ -6,9 +6,10 @@
 #define   IMG_ARROW       42
 #define   IMG_COPYRIGHT   43
 #define   IMG_RETURN      44
-#define   IMG_MUSIC_OFF   45
-#define   IMG_MUSIC_ON    46
-#define   IMG_MOVIE       47
+#define   IMG_CONFIG      45
+#define   IMG_MUSIC_OFF   46
+#define   IMG_MUSIC_ON    47
+#define   IMG_MOVIE       48
 
 extern  void        G_LoadImage (G_App *app, const char *filename,
                         const int w, const int h,

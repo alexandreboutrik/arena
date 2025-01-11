@@ -69,10 +69,12 @@ G_KeyMouse(G_App *app, const int x, const int y)
 
   if (y > 40 && y < 65)
   {
-    if (x > 1720 && x < 1770)
+    if (x > 1670 && x < 1720)
       G_KeyBind(app, KEY_T);
-    if (x > 1770 && x < 1820)
+    if (x > 1720 && x < 1770)
       G_KeyBind(app, KEY_M);
+    if (x > 1770 && x < 1820)
+      G_ChangeScreen(app, MENU_CONFIGURATION);
     if (x > 1820 && x < 1870)
       G_KeyBind(app, KEY_ESCAPE);
   }

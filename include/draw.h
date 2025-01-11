@@ -3,6 +3,8 @@
 
 #include "data.h"
 
+extern  void    G_DrawTitle (const char *title, const G_Theme theme);
+
 extern  void    G_CentralizeText (const char *text, const int posY, const int fontSize, Color color);
 
 extern  void    G_Notify (G_App *app, const char *msg);

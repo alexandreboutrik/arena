@@ -7,6 +7,7 @@
 #include "configuration.h"
 #include "data.h"
 #include "image.h"
+
 #include "screen/menu_main.h"
 
 extern inline void
@@ -18,13 +19,26 @@ G_CentralizeText(const char *text, const int posY, const int fontSize, Color col
 }
 
 extern inline void
+G_DrawTitle(const char *title, const G_Theme theme)
+{
+  G_CentralizeText(title, 100, TITLE_FTSZ, theme.foreground);
+}
+
+extern inline void
 G_ChangeScreen(G_App *app, const enum SCREEN screen)
 {
   if (screen == PREVIOUS)
-    app->screen = app->prev_screen;
+  {
+    if (app->screen == app->prev_screen)
+      app->prev_screen = MENU_MAIN;
 
-  app->prev_screen = app->screen;
-  app->screen      = screen;
+    app->screen      = app->prev_screen;
+  }
+  else
+  {
+    app->prev_screen = app->screen;
+    app->screen      = screen;
+  }
 
   app->flags &= FLAG_MUSIC;
 }
@@ -66,15 +80,24 @@ extern inline void
 G_DrawScreen(G_App *app)
 {
   G_DrawIcon(app, IMG_MOVIE);
+  G_DrawIcon(app, IMG_CONFIG);
   G_DrawMessage(app);
+
+  void (*fn)(G_App *);
 
   switch (app->screen)
   {
     case MENU_CONFIGURATION:
-      G_draw_configuration(app);
+      fn = G_draw_configuration;
+      break;
+
+    case START_GAME:
+      fn = G_draw_start_game;
       break;
 
     default:
-      G_draw_main_menu(app);
+      fn = G_draw_main_menu;
   }
+
+  fn(app);
 }
