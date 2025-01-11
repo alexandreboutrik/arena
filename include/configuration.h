@@ -4,6 +4,8 @@
 #define TITLE             "Arena"
 #define VERSION           "v0.0.1-prealpha"
 
+#define NERD_FONT          "AgaveNerdFont-Regular.ttf"
+
 #define SCREEN_WIDTH      1920
 #define SCREEN_HEIGHT     1080
 

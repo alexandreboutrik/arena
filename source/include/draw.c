@@ -40,7 +40,7 @@ G_DrawMessage(G_App *app)
 {
   if (app->timer < 180)
   {
-    DrawText(app->msg, 30, SCREEN_HEIGHT-47, 30, app->current_theme.foreground);
+    DrawTextEx(app->font, app->msg, (Vector2) {30, SCREEN_HEIGHT-47}, 30, 0, app->current_theme.foreground);
 
     app->timer++;
   }

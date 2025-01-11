@@ -45,6 +45,8 @@ typedef struct G_App
   G_Theme      current_theme;
   Music        current_music;
 
+  Font         font;
+
   int          timer;               /* timer for G_Notify() */
   char         msg[64];             /* notify message */
 } G_App;

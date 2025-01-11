@@ -35,6 +35,10 @@ G_InitData(G_App *app)
   G_SetMusic(app, 0);
   G_SetTheme(app, 0);
 
+  app->font = LoadFontEx(ASSETS "/fonts/" NERD_FONT, 128, NULL, 0);
+  GenTextureMipmaps(&(app->font.texture));
+  SetTextureFilter(app->font.texture, TEXTURE_FILTER_TRILINEAR);
+
   app->timer = 120;
   bzero(app->msg, 64 * sizeof(char));
 }
@@ -42,8 +46,10 @@ G_InitData(G_App *app)
 extern inline void
 G_Quit(G_App *app)
 {
+  UnloadFont(app->font);
   UnloadMusicStream(app->current_music);
   G_UnloadImages(app);
+
   CloseWindow();
 
   exit(EXIT_SUCCESS);
