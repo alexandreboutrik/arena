@@ -10,6 +10,14 @@ static const G_MusicInfo metadata[] = {
     "AntalyaTV - Soldiers of Truth",
     ASSETS "/music/soldiers-of-truth-13807.mp3",
   },
+  {
+    "SPMusic - Tension",
+    ASSETS "/music/tension-151135.mp3",
+  },
+  {
+    "Anastasia Kir - Western",
+    ASSETS "/music/western-165285.mp3",
+  }
 };
 
 #define   MUSICS    (int) ((sizeof(metadata) / sizeof(G_MusicInfo))-1)
