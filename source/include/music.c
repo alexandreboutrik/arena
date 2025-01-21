@@ -40,5 +40,7 @@ G_SetMusic(G_App *app, const int flag)
   app->current_music = LoadMusicStream(metadata[selected].filename);
   PlayMusicStream(app->current_music);
 
+  app->flags |= FLAG_MUSIC;
+
   return metadata[selected].name;
 }

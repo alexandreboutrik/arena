@@ -22,12 +22,12 @@ G_KeyBind(G_App *app, const int key)
       break;
 
     case KEY_T:
-      sprintf(msg, "Theme %s loaded .", G_SetTheme(app, NEXT));
+      sprintf(msg, "Theme %s loaded", G_SetTheme(app, NEXT));
       G_Notify(app, msg);
       break;
 
     case KEY_N:
-      sprintf(msg, "Loading music: %s .", G_SetMusic(app, NEXT));
+      sprintf(msg, "Loading music: %s", G_SetMusic(app, NEXT));
       G_Notify(app, msg);
       break;
 
@@ -35,12 +35,12 @@ G_KeyBind(G_App *app, const int key)
       if (IsMusicStreamPlaying(app->current_music))
       {
         PauseMusicStream(app->current_music);
-        G_Notify(app, "Music paused .");
+        G_Notify(app, "Music paused");
       }
       else
       {
         ResumeMusicStream(app->current_music);
-        G_Notify(app, "Turning the music back on ...");
+        G_Notify(app, "Turning the music back on");
       }
       G_ToggleFlag(app, FLAG_MUSIC);
         break;
