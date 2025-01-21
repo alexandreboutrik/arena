@@ -67,8 +67,10 @@ G_ResizeImage(G_App *app, const size_t index, const int w, const int h)
 }
 
 extern inline void
-G_DrawImage(const G_App *app, const size_t index)
+G_DrawImage(const G_App *app, size_t index)
 {
+  if (app->image[index].flags == FLAG_WIDGET_INC)
+    index += 5;
   DrawTexture(app->image[index].texture, app->image[index].x, app->image[index].y, WHITE);
 }
 
@@ -119,10 +121,17 @@ G_InitImages(G_App *app)
   G_LoadImage(app, "/home/boutrik/Downloads/output-onlinepngtools.png",
                COPYRIGHT_WH, COPYRIGHT_WH, COPYRIGHT_X, COPYRIGHT_Y);
 
-  // --- 44; 48
+  // --- 44; 48 - 40 px
   G_LoadImage(app, ASSETS "/ui/return.png", 40, 40, SCREEN_WIDTH-100, 30);
   G_LoadImage(app, ASSETS "/ui/wrench.png", 40, 40, SCREEN_WIDTH-150, 30);
   G_LoadImage(app, ASSETS "/ui/musicOff.png", 40, 40, SCREEN_WIDTH-200, 30);
   G_LoadImage(app, ASSETS "/ui/musicOn.png", 40, 40, SCREEN_WIDTH-200, 30);
   G_LoadImage(app, ASSETS "/ui/movie.png", 40, 40, SCREEN_WIDTH-250, 30);
+
+  // --- 49; 53 - 50px
+  G_LoadImage(app, ASSETS "/ui/return.png", 60, 60, SCREEN_WIDTH-110, 30);
+  G_LoadImage(app, ASSETS "/ui/wrench.png", 60, 60, SCREEN_WIDTH-160, 30);
+  G_LoadImage(app, ASSETS "/ui/musicOff.png", 60, 60, SCREEN_WIDTH-210, 30);
+  G_LoadImage(app, ASSETS "/ui/musicOn.png", 60, 60, SCREEN_WIDTH-210, 30);
+  G_LoadImage(app, ASSETS "/ui/movie.png", 60, 60, SCREEN_WIDTH-260, 30);
 }

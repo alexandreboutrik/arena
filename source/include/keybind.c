@@ -5,8 +5,10 @@
 
 #include "data.h"
 #include "draw.h"
+#include "image.h"
 #include "theme.h"
 #include "music.h"
+#include "widget.h"
 
 extern void
 G_KeyBind(G_App *app, const int key)
@@ -59,13 +61,47 @@ G_KeyBind(G_App *app, const int key)
   }
 }
 
+static inline void
+G_Zero_WidgetFlags(G_App *app)
+{
+  app->image[IMG_MOVIE].flags     = 0;
+  app->image[IMG_MUSIC_ON].flags  = 0;
+  app->image[IMG_MUSIC_OFF].flags = 0;
+  app->image[IMG_CONFIG].flags    = 0;
+  app->image[IMG_RETURN].flags    = 0;
+}
+
+static inline void
+G_Set_WidgetFlag(G_App *app, const size_t index)
+{
+  G_Zero_WidgetFlags(app);
+  app->image[index].flags = FLAG_WIDGET_INC;
+}
+
 extern void
 G_KeyMouse(G_App *app, const int x, const int y)
 {
+  if (y > 40 && y < 65)
+  {
+    if (x > 1670 && x < 1720)
+      G_Set_WidgetFlag(app, IMG_MOVIE);
+    else if (x > 1720 && x < 1770)
+    {
+      G_Set_WidgetFlag(app, IMG_MUSIC_ON);
+      app->image[IMG_MUSIC_OFF].flags = FLAG_WIDGET_INC;
+    }
+    else if (x > 1770 && x < 1820)
+      G_Set_WidgetFlag(app, IMG_CONFIG);
+    else if (x > 1820 && x < 1870)
+      G_Set_WidgetFlag(app, IMG_RETURN);
+    else
+      G_Zero_WidgetFlags(app);
+  }
+  else
+    G_Zero_WidgetFlags(app);
+
   if (! IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
     return;
-
-  printf("Clicked at x:[%d], y:[%d]\n", x, y);
 
   if (y > 40 && y < 65)
   {

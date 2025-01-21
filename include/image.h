@@ -23,7 +23,7 @@ extern  void        G_UnloadImages (G_App *app);
 extern  void        G_ResizeImage (G_App *app, const size_t index,
                         const int w, const int h);
 
-extern  void        G_DrawImage (const G_App *app, const size_t index);
+extern  void        G_DrawImage (const G_App *app, size_t index);
 extern  void        G_DrawCard (G_App *app,
                         const int naipe, const int card,
                         const int w, const int h,

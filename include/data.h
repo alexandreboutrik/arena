@@ -6,9 +6,11 @@
 
 #include "configuration.h"
 
-#define   FLAG_FPS        (1 << 1)
-#define   FLAG_MUSIC      (1 << 2)
-#define   FLAG_RETURN     (1 << 3)
+#define   FLAG_FPS          (1 << 1)
+#define   FLAG_MUSIC        (1 << 2)
+#define   FLAG_RETURN       (1 << 3)
+
+#define   FLAG_WIDGET_INC   (1 << 1)
 
 enum SCREEN
 {
@@ -32,6 +34,8 @@ typedef struct G_Image
 
   int         w, h;
   int         x, y;
+
+  int flags;
 } G_Image;
 
 typedef struct G_App
