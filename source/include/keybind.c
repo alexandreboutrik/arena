@@ -45,6 +45,18 @@ G_KeyBind(G_App *app, const int key)
       G_ToggleFlag(app, FLAG_MUSIC);
         break;
 
+    case KEY_K:
+      app->music_volume += 0.1;
+      /* FALLTHROUGH */
+    case KEY_J:
+      app->music_volume -= 0.05;
+      if (app->music_volume < 0.0) app->music_volume = 0.0;
+      if (app->music_volume > 1.0) app->music_volume = 1.0;
+      sprintf(msg, "Set music volume to %.2lf", app->music_volume);
+      G_Notify(app, msg);
+      SetMusicVolume(app->current_music, app->music_volume);
+      break;
+
     case KEY_F:
       if (IsKeyDown(KEY_LEFT_CONTROL) || IsKeyDown(KEY_RIGHT_CONTROL))
         G_ToggleFlag(app, FLAG_FPS);

@@ -32,8 +32,9 @@ G_InitData(G_App *app)
   bzero(app->image, MAX_IMAGES * sizeof(G_Image));
   app->n_img  = 0;
 
-  G_SetMusic(app, 0);
   G_SetTheme(app, 0);
+  G_SetMusic(app, 0);
+  app->music_volume = 1.0;
 
   app->font = LoadFontEx(ASSETS "/fonts/" NERD_FONT, 128, NULL, 0);
   GenTextureMipmaps(&(app->font.texture));

@@ -48,6 +48,7 @@ typedef struct G_App
 
   G_Theme      current_theme;
   Music        current_music;
+  float        music_volume;
 
   Font         font;
 

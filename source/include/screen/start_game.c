@@ -43,18 +43,18 @@ G_draw_start_game(G_App *app)
   int x = GetMouseX();
   int y = GetMouseY();
 
-  if (x > FODINHA_X && x < (int)FODINHA_X+CARD_W+15)
+  if (x > (FODINHA_X-45) && x < (int)FODINHA_X+CARD_W+45)
     selected = 0;
-  if (x > TRUCO_X && x < (int)TRUCO_X+CARD_W+15)
+  if (x > (TRUCO_X-45) && x < (int)TRUCO_X+CARD_W+45)
     selected = 1;
 
   // ---
   if (selected == 0)
-    DrawRectangle((SCREEN_WIDTH/3)-30, (SCREEN_HEIGHT/3)-30,
+    DrawRectangle(FODINHA_X-45, (SCREEN_HEIGHT/3)-30,
                   CARD_W+75, CARD_H+150,
                   app->current_theme.selected);
   if (selected == 1)
-    DrawRectangle(((int)(2*(SCREEN_WIDTH/3)+15))-CARD_W-45, (SCREEN_HEIGHT/3)-30,
+    DrawRectangle(TRUCO_X-45, (SCREEN_HEIGHT/3)-30,
                   CARD_W+75, CARD_H+150,
                   app->current_theme.selected);
 

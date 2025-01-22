@@ -37,10 +37,11 @@ G_SetMusic(G_App *app, const int flag)
   if (flag != FIRST)
     UnloadMusicStream(app->current_music);
 
-  app->current_music = LoadMusicStream(metadata[selected].filename);
-  PlayMusicStream(app->current_music);
+  app->current_music  = LoadMusicStream(metadata[selected].filename);
+  app->flags         |= FLAG_MUSIC;
 
-  app->flags |= FLAG_MUSIC;
+  PlayMusicStream(app->current_music);
+  SetMusicVolume(app->current_music, app->music_volume);
 
   return metadata[selected].name;
 }

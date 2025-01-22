@@ -10,7 +10,7 @@
 #define SCREEN_HEIGHT     1080
 
 #define TITLE_FTSZ        80
-#define FPS_FTSZ          40
+#define FPS_FTSZ          30
 
 #define MAX_IMAGES        128
 #define MAX_FILENAME      256
