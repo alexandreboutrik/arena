@@ -29,6 +29,10 @@ The build script should handle everything by himself:
 $ ./build.sh
 ```
 
+## Security
+
+If you discover a security vulnerability within Arena, please check out our [Security Policy](SECURITY.md) for more details. All security vulnerabilities will be promptly addressed.
+
 ## License
 
 This project is licensed under the [MIT License](https://opensource.org/licenses/MIT). Feel free to use, modify, and distribute the code as needed. See the [LICENSE](LICENSE) file for more information.
