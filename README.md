@@ -1,6 +1,6 @@
 # Arena
 
-<img align="right" width="100px" src="./.media/arena.png">
+<img align="right" width="128px" src="./.media/arena.png">
 
 ![Version Badge](https://img.shields.io/badge/version-v0.0.1--prealpha-darkred)
 
